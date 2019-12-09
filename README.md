@@ -27,9 +27,7 @@ I bought 8 servo motors from amazon. After a super long time assembling and test
 
 ## Completed Work
 
-Upload photos and videos of your completed final project!
-
-Also upload the code that makes up your project to your repository.
+https://drive.google.com/file/d/1SErMVDyAQFgs_HGNQSpsJACv7NQuZROc/view?usp=sharing
 
 ## References and links
 
