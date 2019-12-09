@@ -1,0 +1,136 @@
+#include <IRremote.h>
+
+#include <Servo.h>
+
+
+Servo servo1;
+Servo servo2;
+
+
+int RECV_PIN = 13;
+IRrecv irrecv(RECV_PIN);
+decode_results results;
+
+int a = 1;
+int b = 1 ;
+int f1 = 45;
+int f2 = 45;
+
+int v = 30;
+int max1 = 110;
+int min1 = 80;
+int max2 = 120;
+int min2 = 80;
+void setup() {
+
+  Serial.begin(9600);
+  irrecv.enableIRIn();
+  Serial.println("Startup");
+
+
+
+  servo1.attach(9);
+  servo2.attach(11);
+
+}
+
+void loop() {
+
+  if (irrecv.decode(&results)) {
+    if (results.value == 16736925) {
+      v = 20;
+    }
+
+    if (irrecv.decode(&results)) {
+      if (results.value == 16754775) {
+        v = 30;
+      }
+    }
+
+    if (irrecv.decode(&results)) {
+      if (results.value == 16720605) {
+        a = 0;
+        b = 0;
+      }
+    }
+
+    if (irrecv.decode(&results)) {
+      if (results.value == 16761405) {
+
+        a = 1;
+        b = 1 ;
+        f1 = 0;
+        f2 = 0;
+
+        v = 30;
+        max1 = 110;
+        min1 = 80;
+        max2 = 120;
+        min2 = 80;
+      }
+    }
+
+    if (irrecv.decode(&results)) {
+      if (results.value == 16728765) {
+        a = 0;
+        f1 = 180;
+
+      }
+    }
+
+    if (irrecv.decode(&results)) {
+      if (results.value == 16738455) {
+        max1 = 180;
+        min2 = 90;
+      }
+    } 
+  if (irrecv.decode(&results)) {
+      if (results.value == 3238126971) {
+        max1 = 180;
+        min2 = 90;
+      }
+    }
+    if (irrecv.decode(&results)) {
+      if (results.value == 16750695) {
+        max1 = 100;
+        min2 = 30;
+      }
+    }
+        if (irrecv.decode(&results)) {
+      if (results.value == 2538093563) {
+        max1 = 100;
+        min2 = 30;
+      }
+    }
+    Serial.println(results.value);
+    irrecv.resume();
+  }
+
+
+
+  servo1.write(f1);
+  f1 = f1 + a;
+  if (f1 >= max1)
+  {
+    a = -1;
+  }
+  if (f1 <= min1)
+  {
+    a = 1;
+  }
+
+  servo2.write(f2);
+  f2 = f2 + b;
+  if (f2 >= max2)
+  {
+    b = -1;
+  }
+  if (f2 <= min2)
+  {
+    b = 1;
+  }
+
+
+
+  delay(v);
+}
