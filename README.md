@@ -23,8 +23,7 @@ What did you do in each of the past four weeks?
  
 ## Challenges
 
-I bought all the servo motors from amazon. Hence most of them didn't work even if I assembled it the right way. However, I didn't know what's wrong with them at the beginning. (Maybe I connect the wrong cable with a wrong leg? Maybe my code is wrong.) As a result. I spent a lot of time to find issues and test my motors. I also felt hard to assemble them and made them move. 
-I tried to make a three legs robot at the beginning. After testing, I found that there are only 2 motors worked. The other 6 motors didn't work even if I assemble them in the right way. In the end, I simplified the robot into two legs and made it move.
+I bought 8 servo motors from amazon. After a super long time assembling and testing, I found that there are only 2 of them worked. Then I used those 2 servo motors to make this mechanical dog.
 
 ## Completed Work
 
